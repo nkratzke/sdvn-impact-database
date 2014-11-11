@@ -18,10 +18,7 @@ ADD ./database.sql /var/db/database.sql
 ADD ./rawdata/logdata.csv /var/db/logdata.csv
 
 # Set Standard settings
-ENV user reviewer
-ENV password ""
 ENV url file:/var/db/database.sql
-ENV right READ
 
 # Install starting script
 ADD ./start-database.sh /usr/local/bin/start-database.sh
