@@ -1,7 +1,7 @@
 SDVN Impact Database
 ====================
 
-A MySQL database providing measurement data and analytical views of several experiments to identify the impact of 
+A Docker container providing a MySQL database containing measurement data and analytical views of several experiments to identify the impact of
 
 - Linux containers,
 - Software Defined Virtual Networks (SDVN)
