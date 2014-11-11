@@ -17,7 +17,7 @@ sleep 5
 echo "Creating user"
 echo "CREATE USER 'reviewer'" | mysql --default-character-set=utf8
 echo "REVOKE ALL PRIVILEGES ON *.* FROM '$user'@'%'; FLUSH PRIVILEGES" | mysql --default-character-set=utf8
-echo "GRANT SELECT ON *.* TO '$user'@'%'; FLUSH PRIVILEGES" | mysql --default-character-set=utf8
+echo "GRANT SELECT ON *.* TO 'reviewer'@'%'; FLUSH PRIVILEGES" | mysql --default-character-set=utf8
 
 # And we restart the server to go operational
 mysqladmin shutdown
