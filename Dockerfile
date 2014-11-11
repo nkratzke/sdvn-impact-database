@@ -13,6 +13,14 @@ RUN apt-get -y install mysql-client mysql-server curl
 # otherwise our database would not be reachable from outside the container)
 RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 
+# Enable LOAD LOCAL DATA
+# [mysqld]
+# local-infile
+# [mysql]
+# local-infile
+RUN sed '/\[mysqld\]/a local-infile' /etc/mysql/my.cnf
+RUN sed '/\[mysql\]/a local-infile' /etc/mysql/my.cnf
+
 # Install database
 ADD ./database.sql /var/db/database.sql
 ADD ./rawdata/logdata.csv /var/db/logdata.csv
