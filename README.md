@@ -16,11 +16,10 @@ docker build -t sdvn github.com/nkratzke/sdvn-impact-database
 docker run -d -p 3306:3306 sdvn
 ```
 
-Feel free to access this readonly database with MySQLWorkbench to retrace the underlying data.
+Feel free to access this readonly database with MySQLWorkbench to double check the underlying data.
 
-- User: reviewer (no password required)
-
-Using MySQL Workbench you can have deep look at the underlying data.
+- __DB:__ experiment
+- __DB User:__ reviewer (no password required)
 
 <img src='screenshot.png' width='100%'>
 
