@@ -23,7 +23,7 @@ Feel free to access this readonly database with MySQLWorkbench to double check t
   - localhost _(if Docker runs natively on your workstation)_ or 
   - 192.168.59.103 (if you use boot2docker, if unsure use 'boot2docker ip' to figure out your ip adress).
 - __Port:__ 3306
-- __DB User:__ reviewer (no password required)
+- __DB User:__ reviewer _(no password required)_
 
 <img src='screenshot.png' width='100%'>
 
