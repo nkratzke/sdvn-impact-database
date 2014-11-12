@@ -15,7 +15,7 @@ RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysq
 
 # Enable MySQL to load data from a local csv file
 RUN sed -i 's/\[mysqld\]/&\nlocal-infile/' /etc/mysql/my.cnf
-RUN sed -i 's/\[mysql\]/&\nlocal-infile' /etc/mysql/my.cnf
+RUN sed -i 's/\[mysql\]/&\nlocal-infile/' /etc/mysql/my.cnf
 
 # Install database
 ADD ./database.sql /var/db/database.sql
