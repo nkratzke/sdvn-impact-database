@@ -36,7 +36,7 @@ GROUP BY tag;
 # View to evaluate the reference experiment
 CREATE VIEW Reference AS
 SELECT document_length,                        # Message size (bytes)
-			 count(completed_reqs) as n,             # how many requests for a message size
+			 sum(completed_reqs) as n,               # how many requests for a message size
        avg(test_duration) as avg_duration,     # average duration of a benchmark run
        std(test_duration) as sd_duration,      # standard deviation of duration
        avg(rps) as avg_rps,                    # average requests per second of a benchmark run
@@ -54,7 +54,7 @@ ORDER BY document_length;
 # Same structure like the reference experiment
 CREATE VIEW CrossZone AS
 SELECT document_length,
-       count(completed_reqs) as n,
+       sum(completed_reqs) as n,
 			 avg(test_duration) as avg_duration,
 			 std(test_duration) as sd_duration,
 			 avg(rps) as avg_rps,
@@ -72,7 +72,7 @@ ORDER BY document_length;
 # Same structure like the reference experiment
 CREATE VIEW CrossRegional AS
 SELECT document_length,
-       count(completed_reqs) as n,
+       sum(completed_reqs) as n,
 			 avg(test_duration) as avg_duration,
 			 std(test_duration) as sd_duration,
 			 avg(rps) as avg_rps,
@@ -90,7 +90,7 @@ ORDER BY document_length;
 # Same structure like the reference experiment
 CREATE VIEW Docker AS
 SELECT document_length,
-			 count(completed_reqs) as n,
+			 sum(completed_reqs) as n,
        avg(test_duration) as avg_duration,
        std(test_duration) as sd_duration,
        avg(rps) as avg_rps,
@@ -108,7 +108,7 @@ ORDER BY document_length;
 # Same structure like the reference experiment
 CREATE VIEW Docker_SDVN AS
 SELECT document_length,
-       count(completed_reqs) as n,
+       sum(completed_reqs) as n,
        avg(test_duration) as avg_duration,
        std(test_duration) as sd_duration,
        avg(rps) as avg_rps,
@@ -126,7 +126,7 @@ ORDER BY document_length;
 # Same structure like the reference experiment
 CREATE VIEW Docker_SDVN_Encrypted AS
 SELECT document_length,
-			 count(completed_reqs) as n,
+			 sum(completed_reqs) as n,
        avg(test_duration) as avg_duration,
        std(test_duration) as sd_duration,
        avg(rps) as avg_rps,
