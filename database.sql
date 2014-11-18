@@ -50,7 +50,7 @@ SELECT Experiment,                   # Experiment
 			 avg(RSD_rps) AS avg_RSD_rps,  # average RSD of requests per second
 			 max(RSD_rps) AS max_RSD_rps   # maximal RSD of requests per second
 FROM   Deviations
-GROUP BY Experiment
+GROUP BY Experiment;
 
 # View to evaluate the reference experiment
 CREATE VIEW Reference AS
