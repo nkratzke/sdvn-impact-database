@@ -33,6 +33,15 @@ SELECT Tag AS Experiment,                                          # Experiment
 FROM   data
 GROUP BY tag;
 
+# View to analyze standard deviations of the experiments
+CREATE VIEW Deviations AS
+SELECT Tag AS Experiment, document_length,
+       std(rps)/avg(rps) AS '%RSD_rps',                            # relative standard deviation of requests per second
+			 std(transfer_rate)/avg(transfer_rate) AS '%RSD_trans',      # relative standard deviation of transfer rate
+			 std(time_per_request)/avg(time_per_request) AS '%RSD_tpr'   # relative standard deviation of time per request
+FROM   data
+GROUP BY document_length, tag;
+
 # View to evaluate the reference experiment
 CREATE VIEW Reference AS
 SELECT document_length,                        # Message size (bytes)
