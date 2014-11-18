@@ -45,10 +45,18 @@ GROUP BY document_length, tag;
 
 # View to provide an overview of deviations of the experiments
 CREATE VIEW DeviationsOverview AS
-SELECT Experiment,                   # Experiment
-       min(RSD_rps) AS min_RSD_rps,  # minimal RSD of requests per second
-			 avg(RSD_rps) AS avg_RSD_rps,  # average RSD of requests per second
-			 max(RSD_rps) AS max_RSD_rps   # maximal RSD of requests per second
+SELECT Experiment,                       # Experiment
+       min(RSD_rps) AS min_RSD_rps,      # minimal RSD of requests per second
+			 avg(RSD_rps) AS avg_RSD_rps,      # average RSD of requests per second
+			 max(RSD_rps) AS max_RSD_rps,      # maximal RSD of requests per second
+
+       min(RSD_trans) AS min_RSD_trans,  # minimal RSD of transfer rate
+       avg(RSD_trans) AS avg_RSD_trans,  # average RSD of transfer rate
+       max(RSD_trans) AS max_RSD_trans,  # maximal RSD of transfer rate
+
+       min(RSD_tpr) AS min_RSD_tpr,      # minimal RSD of time per request
+       avg(RSD_tpr) AS avg_RSD_tpr,      # average RSD of time per request
+       max(RSD_tpr) AS max_RSD_tpr       # maximal RSD of time per request
 FROM   Deviations
 GROUP BY Experiment;
 
